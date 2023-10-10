@@ -1,13 +1,18 @@
-import './globals.css'
+
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import Navbar from './Navbar'
 import '@radix-ui/themes/styles.css'
-import {Theme} from '@radix-ui/themes'
+import './theme-config.css'
+import './globals.css'
+import {Theme, ThemePanel} from '@radix-ui/themes'
 
-const poppins = Poppins({
+
+const inter = Inter({
   subsets: ['latin'],
-  weight: '400'
+  weight: '400',
+  display: 'swap',
+  variable: '--font-inter'
 })
 
 export const metadata: Metadata = {
@@ -22,8 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <Theme>
+      <body className={inter.variable}>
+      
+        <Theme appearance="light" accentColor="violet">
         <Navbar />
         <main className='container mx-auto'>
         {children}
